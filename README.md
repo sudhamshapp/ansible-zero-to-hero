@@ -65,3 +65,11 @@ ubuntu@ip-172-31-24-141:~/.ssh$
 
 ubuntu@ip-172-31-24-141:~$ ssh ubuntu@3.21.190.66' - next time it won't ask for the password
 
+default inventory location of ansible inventory
+/etc/ansible/hosts, but we can create the inventory at any location as well
+ansible  all -m ping - no need of mentioning the inventory file explicitly
+ansible -i /home/ubuntu/inventory.ini all -m ping - we need to explicitly specify the inventory if we created a file for instance with -i and absolute path of the inventory
+
+
+ansible -m shell -a "sudo ls /etc/" all
+
