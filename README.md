@@ -10,6 +10,8 @@ ssh-copy-id -f "-o IdentityFile <PATH TO PEM FILE>" ubuntu@<INSTANCE-PUBLIC-IP>
 ssh-copy-id -f "-o IdentityFile /home/ubuntu/mars-sudhamsh.pem" ubuntu@3.21.190.66
 
 
+
+we need follow this approach
 - this is for passwordless authentication - should be done on control node
 root@ip-172-31-24-64:~# history
     1  clear
