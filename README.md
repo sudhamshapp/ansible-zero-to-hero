@@ -60,3 +60,6 @@ Now try logging into the machine, with:   "ssh 'ubuntu@3.21.190.66'"
 and check to make sure that only the key(s) you wanted were added.
 
 ubuntu@ip-172-31-24-141:~/.ssh$ 
+
+ubuntu@ip-172-31-24-141:~$ ssh ubuntu@3.21.190.66' - next time it won't ask for the password
+
