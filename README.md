@@ -98,3 +98,27 @@ ubuntu@ip-172-31-24-141:~/test$ tree . - this is the directory structure created
 9 directories, 8 files
 
 
+ansible is idempotent
+
+ansible-galaxy role -h 
+
+ubuntu@ip-172-31-24-141:~$ ansible-galaxy role install bsmeding.docker - basically we're pulling it from ansible-galaxy
+Starting galaxy role install process
+- downloading role 'docker', owned by bsmeding
+- downloading role from https://github.com/bsmeding/ansible_role_docker/archive/1.0.11.tar.gz
+- extracting bsmeding.docker to /home/ubuntu/.ansible/roles/bsmeding.docker
+- bsmeding.docker (1.0.11) was installed successfully
+ubuntu@ip-172-31-24-141:~$ ls ~/.ansible/roles - this is where the pulled role from ansible-galaxy is resided
+bsmeding.docker
+ubuntu@ip-172-31-24-141:~$ sudo vi docker-play.yml - we need to create and point the pulled role from ansible-galaxy, below is the reference
+ubuntu@ip-172-31-24-141:~$ cat docker-play.yml 
+---
+- hosts: all
+  become: true
+  roles: 
+    - bsmeding.docker
+  
+
+ubuntu@ip-172-31-24-141:~$ ansible-playbook docker-play.yml 
+
+
