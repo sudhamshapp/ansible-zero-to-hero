@@ -73,3 +73,28 @@ ansible -i /home/ubuntu/inventory.ini all -m ping - we need to explicitly specif
 
 ansible -m shell -a "sudo ls /etc/" all
 
+Ansible roles and folder structure - will take the same playbook and implement through ansible roles
+
+ansible-galaxy role init test
+ubuntu@ip-172-31-24-141:~/test$ tree . - this is the directory structure created
+.
+├── README.md
+├── defaults
+│   └── main.yml
+├── files
+├── handlers
+│   └── main.yml
+├── meta
+│   └── main.yml
+├── tasks
+│   └── main.yml
+├── templates
+├── tests
+│   ├── inventory
+│   └── test.yml
+└── vars
+    └── main.yml
+
+9 directories, 8 files
+
+
