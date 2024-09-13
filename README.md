@@ -122,3 +122,4 @@ ubuntu@ip-172-31-24-141:~$ cat docker-play.yml
 ubuntu@ip-172-31-24-141:~$ ansible-playbook docker-play.yml 
 
 
+vault - helps secure passwords, ssh keys and api keys
