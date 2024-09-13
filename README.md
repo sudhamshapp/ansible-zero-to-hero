@@ -7,7 +7,53 @@ authentiacation to the servers - provide the ssh public key to the target server
 
 ssh-copy-id -f "-o IdentityFile <PATH TO PEM FILE>" ubuntu@<INSTANCE-PUBLIC-IP>
 
-ssh-copy-id -f "-o IdentityFile /home/ubuntu/mars-sudhamsh.pem" ubuntu@3.21.190.66
+ssh-copy-id -f "-o IdentityFile /home/ubuntu/mars-sudhamsh.pem" ubuntu@3.21.190.66 - below is the output, do it as a ubuntu user, no need of switching to root
+ubuntu@ip-172-31-24-141:~$ ls
+docker-play.yml  first-playbook.yml  inventory.ini  mars-sudhamsh.pem  test
+ubuntu@ip-172-31-24-141:~$ pwd
+/home/ubuntu
+ubuntu@ip-172-31-24-141:~$ ssh-copy-id -f "-o IdentityFile /home/ubuntu/mars-sudhamsh.pem" ubuntu@3.138.202.146
+/usr/bin/ssh-copy-id: INFO: Source of key(s) to be installed: "/home/ubuntu/.ssh/id_ed25519.pub"
+The authenticity of host '3.138.202.146 (3.138.202.146)' can't be established.
+ED25519 key fingerprint is SHA256:sAhvDgZSjd9LNn1I1/x2D93/ldCl/+9pCTQu9Zb8W+0.
+This key is not known by any other names.
+Are you sure you want to continue connecting (yes/no/[fingerprint])? yes
+
+Number of key(s) added: 1
+
+Now try logging into the machine, with:   "ssh -o ' IdentityFile /home/ubuntu/mars-sudhamsh.pem' 'ubuntu@3.138.202.146'"
+and check to make sure that only the key(s) you wanted were added.
+
+ubuntu@ip-172-31-24-141:~$ ssh ubuntu@3.138.202.146
+Welcome to Ubuntu 24.04 LTS (GNU/Linux 6.8.0-1012-aws x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/pro
+
+ System information as of Fri Sep 13 11:10:32 UTC 2024
+
+  System load:  0.0               Processes:             106
+  Usage of /:   22.8% of 6.71GB   Users logged in:       0
+  Memory usage: 20%               IPv4 address for enX0: 172.31.28.97
+  Swap usage:   0%
+
+
+Expanded Security Maintenance for Applications is not enabled.
+
+0 updates can be applied immediately.
+
+Enable ESM Apps to receive additional future security updates.
+See https://ubuntu.com/esm or run: sudo pro status
+
+
+The list of available updates is more than a week old.
+To check for new updates run: sudo apt update
+
+To run a command as administrator (user "root"), use "sudo <command>".
+See "man sudo_root" for details.
+
+ubuntu@ip-172-31-28-97:~$ 
 
 
 
@@ -127,3 +173,7 @@ vault - helps secure passwords, ssh keys and api keys
 boto3, aws secret keys and vault to store the keys securely
 
 extra vars(that is passed in the comamnd line arguments -e type=t2.medium) has the highest predendence rather than the defaults and vars in the ansible role
+
+loops and conditionals
+
+ansible-playbook arbitary.yml --vault-password-file vault.pass
