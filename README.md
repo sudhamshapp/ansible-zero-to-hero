@@ -123,3 +123,7 @@ ubuntu@ip-172-31-24-141:~$ ansible-playbook docker-play.yml
 
 
 vault - helps secure passwords, ssh keys and api keys
+
+boto3, aws secret keys and vault to store the keys securely
+
+extra vars(that is passed in the comamnd line arguments -e type=t2.medium) has the highest predendence rather than the defaults and vars in the ansible role
